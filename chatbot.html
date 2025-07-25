@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ChatBot</title>
+    </head>
+    <body>
+        <div id="container"></div>
+
+
+        <script type="module">
+          import React from 'https://esm.sh/react@19?dev';
+          import { createRoot } from 'https://esm.sh/react-dom@19/client?dev';
+          window.React = React;
+          window.ReactDOM = { createRoot };
+        </script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+            function ChatInput({ messages, setMessages })
+            {
+                return(
+                    <>
+                    <input type="text" placeholder="type message here">
+                    
+                    </input>
+                    <button>send</button>
+                    </>
+                );
+              
+            }
+            function ChatMessages({messages,setMessages})
+            {
+
+            }
+            function App() {
+                const [messages, setMessages] = React.useState([]);
+                return (
+                    <>
+
+                        <ChatInput messages={messages} setMessages={setMessages} />
+                        <ChatMessages messages={messages} setMessages={setMessages} />
+                    </>
+                );
+            }
+
+            const container = document.getElementById('container');
+            const root = ReactDOM.createRoot(container);
+            root.render(<App />);
+        </script>
+    </body>
+</html>
